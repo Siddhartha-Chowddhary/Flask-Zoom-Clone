@@ -152,4 +152,4 @@ def JoinMeeting():
    
     else:  
       flash('Wrong Meeting ID')  
-  return  render_template('Forms/Join_Meeting.html', title='Join Meeting', meetingroomids=meetingroomids, form2=form2) 
+  return  render_template('forms/Join_Meeting.html', title='Join Meeting', meetingroomids=meetingroomids, form2=form2) 
