@@ -1,0 +1,77 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        
+        
+        
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/chat.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InterWeb</title>
+</head>
+<body>
+
+        <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+              </div>
+              {% if current_user.is_authenticated %}
+                  <li>  <a class="page-scroll" style="background-color: rgb(255, 136, 1); position: absolute;
+                    top: 10px;
+                    right: 100px;"> <b> {{ current_user.Username }} </b> </a>  </li>   
+                 
+                 
+                  <a href="{{url_for('LOGOUT')}} "class=" ready-btn2 " style="position: absolute;
+                  top: 10px;
+                  right: 10px;" >Logout</a>
+                  {% else %}
+                  <a href="{{url_for('register')}}" class="myButton  btn btn-info" style="position: absolute;
+                    top: 10px;
+                    right: 10px;"> SignUp </a>
+                  <a href="{{url_for('LOGIN')}}" class="myButton  btn btn-info" style="position: absolute;
+                    top: 10px;
+                    right: 100px;"> Sign In </a>
+                  {% endif %}    
+              
+
+              <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+              
+            
+              
+       
+          <a href="{{url_for('JoinMeeting')}}"> <button type="button" class="btn btn-primary btn-lg btn-block">Join Meeting Room</button></a> <br>
+         
+         
+          <!-- <a href="{{url_for('CreateMeeting')}}"> <button type="button" class="btn btn-primary btn-lg btn-block">Create Meeting Room</button></a> -->
+
+            
+
+              <script>
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "500px";
+
+              }
+              
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+
+              }
+              </script>
+                 
+</body>
+</html>

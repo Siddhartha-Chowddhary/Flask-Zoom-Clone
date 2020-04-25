@@ -1,0 +1,134 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+
+        <!-- Bootstrap CSS File -->
+        <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
+        <!-- Libraries CSS Files -->
+        <link href="../static/lib/nivo-slider/css/nivo-slider.css" rel="stylesheet">
+        <link href="../static/lib/owlcarousel/owl.carousel.css" rel="stylesheet">
+        <link href="../static/lib/owlcarousel/owl.transitions.css" rel="stylesheet">
+        <link href="../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../static/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="../static/lib/venobox/venobox.css" rel="stylesheet">
+      
+        <!-- Nivo Slider Theme -->
+        <link href="../static/css/nivo-slider-theme.css" rel="stylesheet">
+      
+        <!-- Main Stylesheet File -->
+        <link href="../static/css/style.css" rel="stylesheet">
+      
+        <!-- Responsive Stylesheet File -->
+        <link href="../static/css/responsive.css" rel="stylesheet">
+ 
+        
+        
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InterWeb</title>
+</head>
+
+<style>
+
+
+body {
+  background-image: url("./static/images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+</style>
+
+<body>
+
+        <!-- <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+              </div> -->
+              {% if current_user.is_authenticated %}
+                  <li>  <a class="page-scroll" style="background-color: rgb(255, 136, 1); position: absolute;
+                    top: 10px;
+                    right: 110px;"> <b> {{ current_user.Username }} </b> </a>  </li>    
+                 
+                 
+                  <a href="{{url_for('LOGOUT')}} "class=" btn btn-info " style="position: absolute;
+                  top: 10px;
+                  right: 10px;" >Logout</a>
+                  
+                
+                  {% endif %}    
+              
+                  <div class="card" style="width: 50%; margin-left: 26%; margin-top:15%;">
+                    
+                      <div class="card-body">
+                        <h5 class="card-title">Welcome to InterWeb</h5>
+                       
+                        {% if current_user.is_authenticated %}
+                     <center><h5 class="card-text" style="color: black; ">  Best of luck for  your meeting </h5></center> <br><br> 
+                     <div style="margin-left: 24%;">
+                      <a href="{{url_for('JoinMeeting')}}" class="btn btn-primary" > Join Room</a>
+                                          
+                      <a href="{{url_for('CreateMeeting')}}"class="btn btn-primary" > Create  Room</a>
+                     </div>
+                      {% else %}
+                      <p style="color: black;">Please Signin before Joining or creating a meeting room </p>
+<!--  
+                      <a href="{{url_for('JoinMeeting')}}"> <button type="button" class="btn btn-primary btn-lg  " style="display: none">Join Meeting Room</button></a> <br> <br> <br>
+                     
+                     
+                      <a href="{{url_for('CreateMeeting')}}"> <button type="button disabled" class="btn btn-primary btn-lg " style="display: none">Create Meeting Room</button></a> -->
+                      <div style="margin-left: 40%;">
+                      <a href="{{url_for('register')}}" class="myButton btn btn-primary" > SignUp </a>
+                  <a href="{{url_for('LOGIN')}}" class="myButton  btn btn-primary" > Sign In </a>
+                </div>
+                      {% endif %}   
+                      </div>
+                    </div>
+              <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span> -->
+              <!-- <div class="User_Box " style="margin-left:35%; margin-top:12%; width: 100%;">
+
+              <div id="box1" class="card-body col-sm-12 my" style="background-color: white; height: 400px; width:400px; postion: relative;">
+                <div class="card-body">
+                  <h1 class="card-title" style="color: black; padding-left:40%;" > <b> InterWeb </b></h1>
+                
+            
+                </div>
+              </div>
+              
+             
+            </div> -->
+              
+           
+              <script>
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "500px";
+
+              }
+              
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+
+              }
+              </script>
+                 
+</body>
+</html>
