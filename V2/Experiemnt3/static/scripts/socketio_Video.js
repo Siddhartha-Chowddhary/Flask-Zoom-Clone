@@ -39,7 +39,7 @@ navigator.mediaDevices
 
         let b64image = video_output.toDataURL()
         // console.log(b64image)    
-        socket.emit('Video', {'Image': b64image});
+        socket.emit('Video', {'Image': b64image,  'room':room});
 
     
     // schedule the first one.
