@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        
+        
+        
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/chat.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InterWeb</title>
+</head>
+<style>
+body {
+  background-image: url("./static/Images/bg2.jpg");
+}
+</style>
+<body >
+  <style>
+ 
+    
+    #GTP {
+      display: block;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    #input-area
+{
+      position: fixed;
+      bottom: 10%;
+      right: 40%;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+}
+    #GTP:hover {
+      background-color: #555;
+    }
+    </style>
+
+
+
+
+  <a href="{{url_for('index2')}}">  <button id="GTP" title="Sketch">L <br> e <br> a <br> v<br> e<br> </button></a>
+
+        
+              {% if current_user.is_authenticated %}
+                  <li>  <a   href="#" id="USERNAMES" style="background-color: rgb(255, 136, 1); position: absolute;
+                    top: 10px;
+                    right: 100px;" >{{USERS}} </a>  </li>   
+                 
+                 
+
+                  <a href="{{url_for('LOGOUT')}} "class=" ready-btn2 " style="position: absolute;
+                  top: 10px;
+                  right: 10px;" >Logout</a>
+                  {% else %}
+                  <!-- <a href="{{url_for('register')}}" class="myButton  btn btn-info" style="position: absolute;
+                    top: 10px;
+                    right: 10px;"> SignUp </a>
+                  <a href="{{url_for('LOGIN')}}" class="myButton  btn btn-info" style="position: absolute;
+                    top: 10px;
+                    right: 100px;"> Sign In </a> -->
+                  {% endif %}    
+              
+                  <a id="select-room">{{rooms}} </a>
+<!-- 
+              <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Rooms</span> -->
+              
+              <!-- Meassage Area -->
+              <div id="rightside-pannel">
+                
+              </div>
+           
+              <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+             
+            
+              </div>
+    
+              
+              <!-- Display  Meassage Area -->
+              <div id="display-message-section" style="  overflow: auto;">
+                
+              </div>
+              
+  
+              
+              <!-- Input Meassage Area -->
+
+
+              <div id="input-area" style="position:fixed;">
+                <center>
+
+                <!-- <button type="button" id="SendVideo">Camera</button> -->
+
+                <input type="text" Placehoder="Type your message" value="HI" id="user-message" autocomplete="off">
+                <button type="button" id="SendMsg">Send</button>
+              </center>
+              </div>
+
+              <script src="{{ url_for('static', filename='scripts/Chat_key_Events.js')}}"></script>
+
+              
+              <!-- SOCKET IO JS -->
+              <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" 
+              integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+              <script async src="https://huningxin.github.io/opencv.js/build/asm.js/opencv.js" onload="opencvIsReady()"></script>
+            
+              <script src="{{ url_for('static', filename='scripts/socketio.js')}}"></script>
+
+
+
+
+
+
+
+
+              <script>
+              function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+
+              }
+              
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+
+              }
+              </script>
+                 
+</body>
+</html>   
